@@ -27,9 +27,7 @@ function main() {
 
   if (endsWithSlash || isDirectory) {
     if (!targetExists && endsWithSlash) {
-      console.error('Destination directory does not exist');
-
-      return;
+      throw new Error('Destination directory does not exist');
     }
 
     newFile = path.join(newFile, fileName);
@@ -43,7 +41,7 @@ function main() {
     return;
   }
 
-  fs.rename(oldFile, newFile, (err) => {
+  fs.renameSync(oldFile, newFile, (err) => {
     if (err) {
       throw err;
     }
