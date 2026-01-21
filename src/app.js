@@ -41,11 +41,7 @@ function main() {
     return;
   }
 
-  fs.renameSync(oldFile, newFile, (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  fs.renameSync(oldFile, newFile);
 }
 
 main();
